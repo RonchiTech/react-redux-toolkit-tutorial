@@ -19,7 +19,8 @@ Variables
   --radius: 0.25rem;
   --large-screen-width: 1170px;
   --small-screen-width: 90vw;
-  --fixed-width: 50rem;
+  --fixed-width: 100%;   /* 50rem */
+
 }
 * {
   margin: 0;
@@ -89,6 +90,7 @@ p {
   }
 }
 /* more global css */
+
 
 .btn {
   text-transform: uppercase;
