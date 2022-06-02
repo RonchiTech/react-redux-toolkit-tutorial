@@ -1,13 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeItem } from '../features/cart/cartSlice';
 import { ChevronDown, ChevronUp } from '../icons';
+
 function CartItem({ id, title, price, img, amount }) {
+  const dispatch = useDispatch();
+  const onRemoveHandler = () => {
+    dispatch(removeItem(id));
+  };
+
   return (
     <article className="cart-item">
       <img src={img} alt={title} />
       <div>
         <h4>{title}</h4>
         <h4 className="item-price">${price}</h4>
-        <button className="remove-btn">Remove</button>
+        <button className="remove-btn" onClick={onRemoveHandler}>
+          Remove
+        </button>
       </div>
       <div>
         <button className="amount-btn">
