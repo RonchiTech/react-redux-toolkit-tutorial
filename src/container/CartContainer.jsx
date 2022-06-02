@@ -1,18 +1,24 @@
 import React, { useEffect } from 'react';
 import CartItem from '../components/CartItem.component';
-
-import { useSelector } from 'react-redux';
+import { clearCart } from '../features/cart/cartSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function CartContainer() {
   const { cartItems, amount, total, isLoading } = useSelector(
     (state) => state.cart
   );
+  const dispatch = useDispatch();
+
+  const onCartClearHandler = () => {
+    dispatch(clearCart());
+  };
+
   useEffect(() => {
     console.log(cartItems);
   });
   if (!cartItems.length) {
     return (
-      <section>
+      <section className="cart">
         <header>
           <h2>Your Bag</h2>
           <h4 className="empty-cart">is currently empty</h4>
@@ -36,7 +42,9 @@ function CartContainer() {
             total <span>${total}</span>
           </h4>
         </div>
-        <button className="btn clear-btn">Clear Cart</button>
+        <button className="btn clear-btn" onClick={onCartClearHandler}>
+          Clear Cart
+        </button>
       </footer>
     </section>
   );
