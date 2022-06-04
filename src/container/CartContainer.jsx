@@ -4,7 +4,7 @@ import { clearCart } from '../features/cart/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function CartContainer() {
-  const { cartItems, amount, total, isLoading } = useSelector(
+  const { cartItems, cartCount, totalPrice, isLoading } = useSelector(
     (state) => state.cart
   );
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function CartContainer() {
         <hr />
         <div className="cart-total">
           <h4>
-            total <span>${total}</span>
+            total <span>${totalPrice.toFixed(2)}</span>
           </h4>
         </div>
         <button className="btn clear-btn" onClick={onCartClearHandler}>
