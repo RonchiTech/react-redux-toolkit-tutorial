@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
 import CartItem from '../components/CartItem.component';
-import { clearCart } from '../features/cart/cartSlice';
+// import { clearCart } from '../features/cart/cartSlice';
+import { openModal } from '../features/modal/modalSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function CartContainer() {
   const { cartItems, cartCount, totalPrice, isLoading } = useSelector(
     (state) => state.cart
   );
+  // const { isModalOpen } = useSelector((state) => state.modal);
+
   const dispatch = useDispatch();
 
   const onCartClearHandler = () => {
-    dispatch(clearCart());
+    // dispatch(clearCart());
+    dispatch(openModal());
   };
 
   useEffect(() => {
