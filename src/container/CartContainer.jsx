@@ -5,7 +5,7 @@ import { openModal } from '../features/modal/modalSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function CartContainer() {
-  const { cartItems, cartCount, totalPrice, isLoading } = useSelector(
+  const { cartItems, totalPrice } = useSelector(
     (state) => state.cart
   );
   // const { isModalOpen } = useSelector((state) => state.modal);
@@ -20,6 +20,7 @@ function CartContainer() {
   useEffect(() => {
     console.log(cartItems);
   });
+  
   if (!cartItems.length) {
     return (
       <section className="cart">
